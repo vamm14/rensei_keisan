@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang=“ja”>
+	<head>
+		<meta charset=“UTF-8”>
+		<title>グリムノーツ武器錬成イベ必要素材数計算</title>
+	</head>
+	<body>
+		<h1>グリムノーツ武器錬成イベ必要素材数計算表</h1>
+		<h3>錬成予定の個数を入力してください。</h3>
+	
+	<div id="gen">
+	<a>原種</a>
+	<select id="gensyu" class="list">
+		<option value="0">0</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+	</select>
+	</div>
+	
+	<div id="a">
+	<a>亜種</a>
+	<select id="asyu" class="list">
+		<option value="0">0</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+	</select>
+	</div>
+	
+	<input type="button" onclick= "numtable()" value="決定">
+	
+	
+	<table id="materials">
+		<tr><td rowspan="3">分類</td><td colspan="10">素材必要数</td></tr>
+		<tr><td colspan="5">原種</td><td colspan="5">亜種</td></tr>
+		<tr><td>☆2</td><td>☆3</td><td>☆4</td><td>☆5</td><td>☆6</td><td>☆2</td><td>☆3</td><td>☆4</td><td>☆5</td><td>☆6</td></tr>
+		<tr><td>原種</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td><td></td><td></td><td></td><td></td>
+		<tr><td>亜種</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+		<tr><td>合計</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	</table>
+	
+	
+	<style type="text/css">
+	#gen{
+		position: absolute;
+		left: 100px;
+	}
+	
+	#a{
+		position: absolute;
+		left: 250px;
+	}
+	
+	.list{
+		width: 80px;
+		height: 30px;
+		font-size: large;
+	}
+	
+	a{
+		font-size: 120%;
+	}
+	
+	input{
+		position: relative;
+		left:380px;
+		width: 80px;
+		height: 30px;
+		font-size: large;
+		background-color: #CEE3F6;
+	}
+	
+	td{
+		border: groove;
+		border-width: 2px;
+		border-color: #000000;
+		width: 40px;
+		height: 20px;
+		font-size: large;
+		text-align: center;
+	}
+	
+	table{
+		border-spacing: 0px;
+		position: relative;
+		top: 50px;
+		left: 80px;
+	}
+	</style>
+	
+	<script>
+	var gennum = 0;
+	var anum = 0;
+	
+	var numtable = function() {
+		var gennum = gensyu.value;
+		var anum = asyu.value;
+		console.log(gennum + ':' + anum);
+		var gen10 = 10 * gennum;
+		var gen30 = 30 * gennum;
+		var gen65 = 65 * gennum;
+		var gen75 = 75 * gennum;
+		var a10 = 10 * anum;
+		var a20 = 20 * anum;
+		var a25 = 25 * anum;
+		var a35 = 35 * anum;
+		var a45 = 45 * anum;
+		materials.rows[3].cells[1].innerText = gen75;
+		materials.rows[3].cells[2].innerText = gen75;
+		materials.rows[3].cells[3].innerText = gen65;
+		materials.rows[3].cells[4].innerText = gen30;
+		materials.rows[3].cells[5].innerText = gen10;
+		materials.rows[4].cells[1].innerText = a10;
+		materials.rows[4].cells[2].innerText = a10;
+		materials.rows[4].cells[3].innerText = a25;
+		materials.rows[4].cells[4].innerText = a35;
+		materials.rows[4].cells[5].innerText = a20;
+		materials.rows[4].cells[6].innerText = a10;
+		materials.rows[4].cells[7].innerText = a25;
+		materials.rows[4].cells[8].innerText = a45;
+		materials.rows[4].cells[9].innerText = a35;
+		materials.rows[4].cells[10].innerText = a10;
+		
+		materials.rows[5].cells[1].innerText = gen75+a10;
+		materials.rows[5].cells[2].innerText = gen75+a10;
+		materials.rows[5].cells[3].innerText = gen65+a25;
+		materials.rows[5].cells[4].innerText = gen30+a35;
+		materials.rows[5].cells[5].innerText = gen10+a20;
+		materials.rows[5].cells[6].innerText = a10;
+		materials.rows[5].cells[7].innerText = a25;
+		materials.rows[5].cells[8].innerText = a45;
+		materials.rows[5].cells[9].innerText = a35;
+		materials.rows[5].cells[10].innerText = a10;
+	}
+	
+	
+	
+	
+	
+	//75,75,65,30,10
+	//10,10,25,35,20,10,25,45,35,10
+	</script>
+	</body>
+</html>
